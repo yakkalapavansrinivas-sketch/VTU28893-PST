@@ -1,0 +1,37 @@
+import java.util.*;
+
+class Solution {
+
+    public static List<Integer> search(String text, String pattern) {
+
+        List<Integer> result = new ArrayList<>();
+
+        int n = text.length();
+        int m = pattern.length();
+
+        for (int i = 0; i <= n - m; i++) {
+
+            int j;
+
+            for (j = 0; j < m; j++) {
+                if (text.charAt(i + j) != pattern.charAt(j)) {
+                    break;
+                }
+            }
+
+            if (j == m) {
+                result.add(i);
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        String text = "geeksforgeeks";
+        String pattern = "geeks";
+
+        System.out.println(search(text, pattern));
+    }
+}
